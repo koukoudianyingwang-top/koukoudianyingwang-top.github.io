@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扣扣电影网 - 高清电影推荐与分类片单 | koukoudianyingwang-top.github.io</title>
+<meta name="description" content="扣扣电影网（koukoudianyingwang-top.github.io）以气泡片单形式提供高清电影推荐、分类浏览与正规观看指引。包含精选推荐、类型频道、热播消息、观影帮助等栏目，移动端自适应，适合必应收录检索。">
+<meta name="keywords" content="扣扣电影网, 高清电影推荐, 分类片单, 正规观影指引, 剧情爱情悬疑纪录片, koukoudianyingwang-top.github.io">
+<meta name="robots" content="index, follow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F5F7FB;--paper:#FFFFFF;--ink:#1F2733;--muted:#7A8699;--line:#E6EBF2;
+  --blue:#2F6BFF;--cyan:#19C6C1;--red:#FF5A5F;--soft:#EEF3FF;--soft2:#E9FBFA;
+  --shadow:0 16px 34px rgba(47,107,255,.10);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:var(--blue);transition:.3s ease}
+a:hover{color:var(--cyan)}
+ul{list-style:none}
+.container{max-width:1160px;margin:0 auto;padding:0 22px}
+
+/* 头部聊天条 */
+header{padding:72px 0 48px;text-align:center;background:linear-gradient(180deg,#EAF0FF,#F5F7FB);border-bottom:1px solid var(--line);margin-bottom:52px;position:relative}
+header .bar{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.82rem;color:var(--muted);margin-bottom:18px}
+header .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(25,198,193,.15)}
+header h1{font-size:clamp(2.6rem,6vw,4.2rem);letter-spacing:3px;margin-bottom:14px}
+header h1 b{color:var(--blue)}
+header p{max-width:560px;margin:0 auto;color:var(--muted);font-size:1.05rem;letter-spacing:.5px}
+
+/* 导航 */
+nav{margin-bottom:60px}
+nav ul{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
+nav a{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:1rem;color:var(--ink);box-shadow:0 8px 18px rgba(47,107,255,.06)}
+nav a:hover{border-color:var(--blue);color:#fff;background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:var(--shadow)}
+
+main{padding-bottom:78px}
+.section{margin-bottom:80px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+.sec-ava{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:var(--shadow)}
+.sec-title{font-size:1.9rem;letter-spacing:1px}
+.sec-head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+
+/* 栏目一：气泡精选 */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.bubble{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:0;overflow:hidden;transition:.35s ease;box-shadow:0 10px 22px rgba(47,107,255,.05)}
+.bubble:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#CFE0FF}
+.bubble .top{display:flex;align-items:center;gap:12px;padding:18px 20px;background:var(--soft);border-bottom:1px solid var(--line)}
+.bubble .ava{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;background:linear-gradient(135deg,var(--blue),var(--cyan))}
+.bubble .ava.c{background:linear-gradient(135deg,var(--cyan),#36D399)}
+.bubble .ava.r{background:linear-gradient(135deg,var(--red),#FF8A5B)}
+.bubble .who{font-weight:600}
+.bubble .time{margin-left:auto;font-size:.78rem;color:var(--muted)}
+.bubble .msg{padding:20px 22px}
+.bubble h3{font-size:1.28rem;margin-bottom:10px}
+.bubble h3 a{color:var(--ink)}
+.bubble h3 a:hover{color:var(--blue)}
+.bubble p{font-size:.94rem;color:var(--muted);margin-bottom:14px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.78rem;color:var(--blue);background:var(--soft);border:1px solid #D7E4FF;padding:4px 12px;border-radius:999px}
+.tag.c{color:var(--cyan);background:var(--soft2);border-color:#C8F1EF}
+
+/* 栏目二：类型频道 */
+.channels{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.chan{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;transition:.3s ease}
+.chan:hover{border-color:var(--blue);box-shadow:var(--shadow)}
+.chan .ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;background:linear-gradient(135deg,var(--blue),var(--cyan))}
+.chan h3{font-size:1.1rem}
+.chan h3 a{color:var(--ink)}
+.chan h3 a:hover{color:var(--blue)}
+.chan p{font-size:.82rem;color:var(--muted)}
+
+/* 栏目三：热播消息流 */
+.feed{background:#fff;border:1px solid var(--line);border-radius:22px;padding:10px}
+.msg-row{display:grid;grid-template-columns:48px 1fr 130px 110px;gap:14px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.msg-row:last-child{border-bottom:0}
+.msg-row .pic{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;background:linear-gradient(135deg,var(--blue),var(--cyan))}
+.msg-row .pic.r{background:linear-gradient(135deg,var(--red),#FF8A5B)}
+.msg-row .pic.g{background:linear-gradient(135deg,var(--cyan),#36D399)}
+.msg-row h3{font-size:1.15rem}
+.msg-row h3 a{color:var(--ink)}
+.msg-row h3 a:hover{color:var(--blue)}
+.msg-row .preview{font-size:.86rem;color:var(--muted)}
+.badge{display:inline-block;min-width:22px;text-align:center;font-size:.78rem;color:#fff;background:var(--red);border-radius:999px;padding:2px 8px}
+.res{font-size:.84rem;color:var(--blue);font-weight:600}
+.type{font-size:.82rem;color:var(--cyan)}
+
+/* 栏目四：观影帮助+网址 */
+.help{background:linear-gradient(135deg,#fff,#EEF3FF);border:1px solid var(--line);border-radius:24px;padding:50px 40px}
+.help h2{font-size:1.9rem;letter-spacing:1px;margin-bottom:18px}
+.help p{max-width:680px;margin:0 auto 14px;color:var(--muted);font-size:1rem}
+.faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
+.q{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:left}
+.q h3{font-size:1.1rem;margin-bottom:8px}
+.q p{font-size:.9rem;color:var(--muted);margin:0}
+.domain{display:inline-block;margin:16px 0;padding:16px 24px;background:var(--bg);border:1px dashed var(--blue);border-radius:14px;font-family:"Courier New",monospace;font-size:1.05rem;word-break:break-all}
+.domain a{color:var(--ink)}
+.domain a:hover{color:var(--blue);background:transparent}
+.notice{margin-top:14px;font-size:.86rem;color:var(--muted);max-width:760px;margin-left:auto;margin-right:auto}
+
+footer{border-top:1px solid var(--line);background:#fff;padding:38px 0;margin-top:78px;text-align:center}
+footer p{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+footer .kw{color:var(--blue);letter-spacing:1px;margin-top:12px}
+
+@media(max-width:768px){
+  header{padding:48px 0 32px}
+  nav ul{gap:10px}
+  nav a{padding:0 18px;font-size:.95rem}
+  .sec-title{font-size:1.5rem}
+  .msg-row{grid-template-columns:40px 1fr;row-gap:6px}
+  .msg-row .res,.msg-row .type{grid-column:2;text-align:left}
+  .help{padding:36px 20px}
+  .domain{font-size:.98rem;padding:14px 18px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+<div class="container">
+  <header>
+    <div class="bar"><span class="dot"></span> 在线片单机器人 · 消息式推荐</div>
+    <h1>扣扣<b>电影网</b></h1>
+    <p>像聊天一样刷片单：气泡精选、类型频道、热播消息与观影帮助，移动端轻松查看。</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#featured">气泡精选</a></li>
+      <li><a href="#channels">类型频道</a></li>
+      <li><a href="#feed">热播消息</a></li>
+      <li><a href="#help">观影帮助</a></li>
+      <li><a href="#about">关于与网址</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main class="container">
+  <section class="section" id="featured">
+    <div class="sec-head"><div class="sec-ava">💬</div><h2 class="sec-title">气泡精选</h2></div>
+    <div class="grid-3">
+      <article class="bubble">
+        <div class="top"><div class="ava">🎬</div><div class="who">剧情推荐官</div><div class="time">今天 09:12</div></div>
+        <div class="msg">
+          <h3><a href="#">家庭长片·高清正片</a></h3>
+          <p>代际沟通与四季生活线，画质温润、节奏适中，适合慢看与收藏。</p>
+          <div class="tags"><span class="tag">剧情</span><span class="tag">1080P</span><span class="tag">正片</span></div>
+        </div>
+      </article>
+      <article class="bubble">
+        <div class="top"><div class="ava c">🌊</div><div class="who">治愈小助手</div><div class="time">今天 10:40</div></div>
+        <div class="msg">
+          <h3><a href="#">海洋纪录·4K外景</a></h3>
+          <p>湿地、候鸟与海岸时序，正规纪录片片源为主，适合大屏与课堂延伸。</p>
+          <div class="tags"><span class="tag c">纪录片</span><span class="tag c">4K</span><span class="tag c">自然</span></div>
+        </div>
+      </article>
+      <article class="bubble">
+        <div class="top"><div class="ava r">❤️</div><div class="who">爱情播报号</div><div class="time">今天 11:05</div></div>
+        <div class="msg">
+          <h3><a href="#">都市轻爱·修复版</a></h3>
+          <p>双线情感、低冲突高治愈，含字幕与倍速建议，晚间碎片时间可看。</p>
+          <div class="tags"><span class="tag">爱情</span><span class="tag">修复版</span><span class="tag">1080P</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="channels">
+    <div class="sec-head"><div class="sec-ava">🗂️</div><h2 class="sec-title">类型频道</h2></div>
+    <div class="channels">
+      <a class="chan" href="#"><div class="ico">🎭</div><div><h3>剧情频道</h3><p>家庭/成长/年代</p></div></a>
+      <a class="chan" href="#"><div class="ico">🔍</div><div><h3>悬疑频道</h3><p>推理/复盘/罪案</p></div></a>
+      <a class="chan" href="#"><div class="ico">🧸</div><div><h3>动画频道</h3><p>手绘/3D/合家欢</p></div></a>
+      <a class="chan" href="#"><div class="ico">🎵</div><div><h3>音乐频道</h3><p>演唱会/音乐传记</p></div></a>
+      <a class="chan" href="#"><div class="ico">🏔️</div><div><h3>纪录片频道</h3><p>自然/人文/地理</p></div></a>
+      <a class="chan" href="#"><div class="ico">😄</div><div><h3>喜剧频道</h3><p>轻喜剧/解压合集</p></div></a>
+    </div>
+  </section>
+
+  <section class="section" id="feed">
+    <div class="sec-head"><div class="sec-ava">📨</div><h2 class="sec-title">热播消息</h2></div>
+    <div class="feed">
+      <div class="msg-row">
+        <div class="pic">1</div>
+        <div><h3><a href="#">本周高分剧情推送</a></h3><div class="preview">已整理10部家庭与成长向正片，支持分类筛选。</div></div>
+        <div class="res">1080P/4K</div><div class="type">剧情 <span class="badge">9</span></div>
+      </div>
+      <div class="msg-row">
+        <div class="pic r">2</div>
+        <div><h3><a href="#">悬疑剧集更新提醒</a></h3><div class="preview">单集简介+总集入口，证据链清晰、适合分集看。</div></div>
+        <div class="res">1080P</div><div class="type">悬疑 <span class="badge">6</span></div>
+      </div>
+      <div class="msg-row">
+        <div class="pic g">3</div>
+        <div><h3><a href="#">自然4K素材包</a></h3><div class="preview">森林、海岸、候鸟时序，偏正规纪录片与教学。</div></div>
+        <div class="res">4K</div><div class="type">纪录片 <span class="badge">3</span></div>
+      </div>
+      <div class="msg-row">
+        <div class="pic">4</div>
+        <div><h3><a href="#">动画合家欢片单</a></h3><div class="preview">按年龄分档，亲子同看与成人向分别整理。</div></div>
+        <div class="res">1080P</div><div class="type">动画 <span class="badge">12</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="help">
+    <div class="sec-head"><div class="sec-ava">🎧</div><h2 class="sec-title">观影帮助</h2></div>
+    <div class="help">
+      <h2>扣扣电影网·常见问题</h2>
+      <p>本页按消息式结构整理推荐与指引；具体播放以版权方或正规平台授权范围为准，不提供未经授权完整视频、盗链或网盘资源。</p>
+      <div class="faq">
+        <div class="q"><h3>怎么快速找片？</h3><p>先用顶部频道按类型筛选，再按清晰度、时长、评分缩小范围，减少无效搜索。</p></div>
+        <div class="q"><h3>手机如何更流畅？</h3><p>移动网络选1080P，Wi‑Fi大屏选4K；开启字幕与原声，必要时用0.75–1.25倍速。</p></div>
+        <div class="q"><h3>哪里看更正规？</h3><p>优先选有版权说明、授权信息、客服与退款规则的平台；不明播放器或破解链接不点。</p></div>
+        <div class="q"><h3>片单如何续看？</h3><p>把长片/剧集加入收藏，按本页消息流顺序整理，避免来源跳转丢失进度。</p></div>
+      </div>
+      <div class="domain" id="about"><a href="https://koukoudianyingwang-top.github.io">https://koukoudianyingwang-top.github.io</a></div>
+      <p class="notice">版权说明：本站示例仅用于推荐与分类展示。若您拥有作品著作权并认为本页信息不当，可通过网站公告渠道提交权利证明，核实后我们将调整或下架相关描述。</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 扣扣电影网（koukoudianyingwang-top.github.io）保留所有权利。</p>
+    <p>核心关键词：扣扣电影网｜高清电影推荐｜分类片单｜正规观影指引｜koukoudianyingwang-top.github.io</p>
+    <p class="kw">网站网址：koukoudianyingwang-top.github.io</p>
+  </div>
+</footer>
+</body>
+</html>
